@@ -147,5 +147,9 @@
   "devDependencies": {
     "eslint": "^6.2.2",
     "eslint-plugin-react": "^7.14.3"
+  },
+    "theme": {
+	  "brand-primary": "red",
+	  "color-text-base":  "#333"
   }
 }
