@@ -37,9 +37,12 @@ class App extends React.Component {
 
     const sidebar = (<List>
       {menus.map((menu, index) => {
-        return (<List.Item key={index}
-          thumb={menu.thumb}
-                >{menu.title}</List.Item>);
+        return (
+          <List.Item key={index}
+            thumb={menu.thumb}
+          >
+            {menu.title}
+          </List.Item>);
       })}
     </List>);
 

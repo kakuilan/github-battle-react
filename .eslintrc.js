@@ -47,8 +47,8 @@ module.exports = {
     'default-case': 1, //在switch语句中需要有default语句
     'dot-notation': [1, { allowPattern: '^[a-z]+(_[a-z]+)+$' }], //获取对象属性的时候使用点号
     'eol-last': 2, //文件以换行符结束
-    'func-names': 1, //函数表达式必须有名字
-    'func-style': 1, //函数风格,规定只能使用函数声明或者函数表达式
+    'func-names': [1, 'as-needed'], //要求命名函数表达式
+    'func-style': [1, 'expression'], //函数风格,要求使用函数表达式而不是函数声明
     'generator-star-spacing': [2, 'both'], //生成器函数前后空格
     'guard-for-in': 2, //监视for in循环，防止出现不可预料的情况
     'jsx-quotes': [1, 'prefer-double'], //强制在JSX属性（jsx-quotes）中一致使用双引号
