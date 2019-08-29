@@ -1,8 +1,9 @@
-//侧边栏组件
+// 底部栏组件
 import React from 'react';
-import { List, } from 'antd-mobile';
+import { Icon as Aicon, } from 'antd';
+import { TabBar, } from 'antd-mobile';
 
-class Sidebar extends React.Component {
+class Footbar extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -23,4 +24,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+export default Footbar;

@@ -10,7 +10,6 @@ class App extends React.Component {
     open: false,
     selectedTab: 'home',
     hidden: false,
-    fullScreen: false,
   }
 
   onOpenChange = (...args) => {
