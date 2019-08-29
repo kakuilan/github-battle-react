@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon as Aicon, } from 'antd';
-import { Drawer, List, NavBar, TabBar, Icon, } from 'antd-mobile';
+import { Drawer, NavBar, TabBar, Icon, } from 'antd-mobile';
+import Sidebar from './Sidebar';
 import './App.less';
 import thumbImg from './assets/image/gray.png';
 
@@ -41,17 +42,6 @@ class App extends React.Component {
       },
     ];
 
-    const sidebar = (<List>
-      {menus.map((menu, index) => {
-        return (
-          <List.Item key={index}
-            thumb={menu.thumb}
-          >
-            {menu.title}
-          </List.Item>);
-      })}
-    </List>);
-
     return (<div>
       <NavBar icon={<Icon type="ellipsis" />}
         onLeftClick={this.onOpenChange}
@@ -64,7 +54,7 @@ class App extends React.Component {
         enableDragHandle
         onOpenChange={this.onOpenChange}
         open={this.state.open}
-        sidebar={sidebar}
+        sidebar={<Sidebar menus={menus}/>}
         style={{ minHeight: document.documentElement.clientHeight - 95, }}
       >
         主体内容在这里。Github battle
