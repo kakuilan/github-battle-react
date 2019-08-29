@@ -6,7 +6,7 @@ import thumbImg from './assets/image/gray.png';
 
 class App extends React.Component {
   state = {
-    open: true,
+    open: false,
     selectedTab: 'redTab',
     hidden: false,
     fullScreen: false,
@@ -63,9 +63,9 @@ class App extends React.Component {
         onOpenChange={this.onOpenChange}
         open={this.state.open}
         sidebar={sidebar}
-        style={{ minHeight: document.documentElement.clientHeight - 110, }}
+        style={{ minHeight: document.documentElement.clientHeight - 95, }}
       >
-        Github battle
+        主体内容在这里。Github battle
       </Drawer>
 
       <TabBar
@@ -78,7 +78,7 @@ class App extends React.Component {
           data-seed="logId"
           icon={<Aicon style={{ fontSize: '20px', }}
             type="home"
-                />}
+          />}
           key="Life"
           onPress={() => {
             this.setState({
@@ -91,12 +91,11 @@ class App extends React.Component {
             type="home" />}
           title="首页"
         >
-          11111111
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="compass"
-                />}
+          />}
           key="Koubei"
           onPress={() => {
             this.setState({
@@ -107,15 +106,14 @@ class App extends React.Component {
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="compass"
-          />}
+                        />}
           title="对比"
         >
-          22222222222
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="fire"
-          />}
+                />}
           key="Friend"
           onPress={() => {
             this.setState({
@@ -128,12 +126,11 @@ class App extends React.Component {
             type="fire" />}
           title="热门"
         >
-          3333333333
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="question-circle"
-          />}
+                />}
           key="my"
           onPress={() => {
             this.setState({
@@ -144,10 +141,9 @@ class App extends React.Component {
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
-          />}
+                        />}
           title="搜索"
         >
-          44444444
         </TabBar.Item>
       </TabBar>
     </div>);
