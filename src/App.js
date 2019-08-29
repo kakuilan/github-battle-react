@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon as Aicon, } from 'antd';
 import { Drawer, NavBar, TabBar, Icon, } from 'antd-mobile';
-import Sidebar from './Sidebar';
+import Sidebar from './components/Sidebar';
 import './App.less';
 import thumbImg from './assets/image/gray.png';
 
