@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon as Aicon, } from 'antd';
 import { Drawer, NavBar, TabBar, Icon, } from 'antd-mobile';
 import Sidebar from './components/Sidebar';
-import './App.less';
+import './styles/App.less';
 import thumbImg from './assets/image/gray.png';
 
 class App extends React.Component {
