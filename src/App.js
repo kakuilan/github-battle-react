@@ -7,7 +7,7 @@ import thumbImg from './assets/image/gray.png';
 class App extends React.Component {
   state = {
     open: false,
-    selectedTab: 'redTab',
+    selectedTab: 'home',
     hidden: false,
     fullScreen: false,
   }
@@ -55,7 +55,9 @@ class App extends React.Component {
     return (<div>
       <NavBar icon={<Icon type="ellipsis" />}
         onLeftClick={this.onOpenChange}
-      >Battle</NavBar>
+      >
+      Github Battle
+      </NavBar>
       <Drawer
         className="my-drawer"
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
@@ -79,13 +81,13 @@ class App extends React.Component {
           icon={<Aicon style={{ fontSize: '20px', }}
             type="home"
           />}
-          key="Life"
+          key="Home"
           onPress={() => {
             this.setState({
-              selectedTab: 'blueTab',
+              selectedTab: 'home',
             });
           }}
-          selected={this.state.selectedTab === 'blueTab'}
+          selected={this.state.selectedTab === 'home'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="home" />}
@@ -96,13 +98,13 @@ class App extends React.Component {
           icon={<Aicon style={{ fontSize: '20px', }}
             type="compass"
           />}
-          key="Koubei"
+          key="Battle"
           onPress={() => {
             this.setState({
-              selectedTab: 'redTab',
+              selectedTab: 'battle',
             });
           }}
-          selected={this.state.selectedTab === 'redTab'}
+          selected={this.state.selectedTab === 'battle'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="compass"
@@ -114,13 +116,13 @@ class App extends React.Component {
           icon={<Aicon style={{ fontSize: '20px', }}
             type="fire"
                 />}
-          key="Friend"
+          key="Fire"
           onPress={() => {
             this.setState({
-              selectedTab: 'greenTab',
+              selectedTab: 'fire',
             });
           }}
-          selected={this.state.selectedTab === 'greenTab'}
+          selected={this.state.selectedTab === 'fire'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="fire" />}
@@ -131,13 +133,13 @@ class App extends React.Component {
           icon={<Aicon style={{ fontSize: '20px', }}
             type="question-circle"
                 />}
-          key="my"
+          key="Search"
           onPress={() => {
             this.setState({
-              selectedTab: 'yellowTab',
+              selectedTab: 'search',
             });
           }}
-          selected={this.state.selectedTab === 'yellowTab'}
+          selected={this.state.selectedTab === 'search'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
