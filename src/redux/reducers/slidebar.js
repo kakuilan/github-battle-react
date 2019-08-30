@@ -8,7 +8,7 @@ const initState = {
 
 // reducer是一个计划函数，接收旧的 state 和 action，生成新的 state
 export default function reducer(state = initState, action) {
-  console.log('reducer type', action.type);
+  console.log('最后执行计划函数, 2222', action.type);
   switch (action.type) {
   case TOGGLE_SIDBAR:
     return {

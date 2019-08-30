@@ -138,16 +138,18 @@ class App extends React.Component {
   }
 }
 
+// 将state映射到props
 const mapStateToProps = (state) => {
   return {
     slidebar: state.slidebar,
   };
 };
 
+// 绑定分发器
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleSlidebar: () => {
-      console.log('toggleSlidebar');
+      console.log('触发后进入分发器dispatch, 0000');
       dispatch(toggleSlidebar());
     },
   };

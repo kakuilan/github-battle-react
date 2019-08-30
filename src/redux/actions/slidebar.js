@@ -1,15 +1,15 @@
 // redux的action
-export const TOGGLE_SIDBAR = 'slidebar/TOGGLE';
+const TOGGLE_SIDBAR = 'slidebar/TOGGLE';
 
 // 侧边栏切换
-export const toggleSlidebar = function () {
-  console.log('00000');
+const toggleSlidebar = function () {
+  console.log('调起action动作, 1111');
   return {
     type: TOGGLE_SIDBAR,
   };
 };
 
-// export default {
-//   TOGGLE_SIDBAR,
-//   toggleSlidebar,
-// };
+export {
+  TOGGLE_SIDBAR,
+  toggleSlidebar,
+};
