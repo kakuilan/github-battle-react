@@ -7,14 +7,14 @@ import thumbImg from './assets/image/gray.png';
 
 class App extends React.Component {
   state = {
-    open: false,
-    selectedTab: 'home',
-    hidden: false,
+    sliderOpen: false,
+    footerActive: 'home',
+    footerHidden: false,
   }
 
   onOpenChange = (...args) => {
     console.log(args);
-    this.setState({ open: !this.state.open, });
+    this.setState({ sliderOpen: !this.state.sliderOpen, });
   }
 
   render() {
@@ -52,7 +52,7 @@ class App extends React.Component {
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
         enableDragHandle
         onOpenChange={this.onOpenChange}
-        open={this.state.open}
+        open={this.state.sliderOpen}
         sidebar={<Sidebar menus={menus}/>}
         style={{ minHeight: document.documentElement.clientHeight - 95, }}
       >
@@ -61,7 +61,7 @@ class App extends React.Component {
 
       <TabBar
         barTintColor="white"
-        hidden={this.state.hidden}
+        hidden={this.state.footerHidden}
         tintColor="#33A3F4"
         unselectedTintColor="#949494"
       >
@@ -69,14 +69,14 @@ class App extends React.Component {
           data-seed="logId"
           icon={<Aicon style={{ fontSize: '20px', }}
             type="home"
-          />}
+                />}
           key="Home"
           onPress={() => {
             this.setState({
-              selectedTab: 'home',
+              footerActive: 'home',
             });
           }}
-          selected={this.state.selectedTab === 'home'}
+          selected={this.state.footerActive === 'home'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="home" />}
@@ -86,32 +86,32 @@ class App extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="compass"
-          />}
+                />}
           key="Battle"
           onPress={() => {
             this.setState({
-              selectedTab: 'battle',
+              footerActive: 'battle',
             });
           }}
-          selected={this.state.selectedTab === 'battle'}
+          selected={this.state.footerActive === 'battle'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="compass"
-                        />}
+          />}
           title="对比"
         >
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="fire"
-                />}
+          />}
           key="Fire"
           onPress={() => {
             this.setState({
-              selectedTab: 'fire',
+              footerActive: 'fire',
             });
           }}
-          selected={this.state.selectedTab === 'fire'}
+          selected={this.state.footerActive === 'fire'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="fire" />}
@@ -121,18 +121,18 @@ class App extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="question-circle"
-                />}
+          />}
           key="Search"
           onPress={() => {
             this.setState({
-              selectedTab: 'search',
+              footerActive: 'search',
             });
           }}
-          selected={this.state.selectedTab === 'search'}
+          selected={this.state.footerActive === 'search'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
-                        />}
+          />}
           title="搜索"
         >
         </TabBar.Item>
