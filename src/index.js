@@ -3,9 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import serviceWorker from './serviceWorker';
+import {Provider, } from 'react-redux';
+import store from './redux/store';
+
 const mountNode = document.getElementById('root');
 
-ReactDOM.render(<App />, mountNode);
+// ReactDOM.render(<App />, mountNode);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, mountNode);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

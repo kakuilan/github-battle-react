@@ -1,4 +1,4 @@
-//侧边栏组件
+// 侧边栏组件
 import React from 'react';
 import { List, } from 'antd-mobile';
 
