@@ -2,7 +2,9 @@
 import {combineReducers, } from 'redux';
 
 import slidebar from './reducers/slidebar';
+import footer from './reducers/footer';
 
 export default combineReducers({
   slidebar,
+  footer,
 });
