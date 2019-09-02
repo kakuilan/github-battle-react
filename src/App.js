@@ -1,7 +1,7 @@
 import React from 'react';
 import { Drawer, NavBar, Icon, } from 'antd-mobile';
 import {connect, } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
+import { Route, Switch, } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Footbar from './components/Footbar';
 import {toggleSlidebar, } from './redux/actions/slidebar';
@@ -15,47 +15,49 @@ import './styles/App.less';
 class App extends React.Component {
   render() {
     return (
-      <Router>
-        <div>
-          <NavBar icon={<Icon type="ellipsis" />}
-            onLeftClick={() => this.props.toggleSlidebar()}
-          >
+      <div>
+        <NavBar icon={<Icon type="ellipsis" />}
+          onLeftClick={() => this.props.toggleSlidebar()}
+        >
           Github Battle
-          </NavBar>
-          <Drawer
-            className="my-drawer"
-            contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
-            enableDragHandle
-            onOpenChange={() => this.props.toggleSlidebar()}
-            open={this.props.slidebar.sliderOpen}
-            sidebar={<Sidebar />}
-            style={{ minHeight: document.documentElement.clientHeight - 95, }}
-          >
-            <Switch>
-              <Route component={Home}
-                exact
-                path="/"
-              />
-              <Route component={Battle}
-                exact
-                path="/battle"
-              />
-              <Route component={Popular}
-                path="/popular"
-              />
-              <Route component={Search}
-                path="/search"
-              />
-              <Route
-                render={function () {
-                  return <p>Not Found</p>;
-                }}
-              />
-            </Switch>
-          </Drawer>
-          <Footbar></Footbar>
-        </div>
-      </Router>
+        </NavBar>
+        <Drawer
+          className="my-drawer"
+          contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
+          enableDragHandle
+          onOpenChange={() => this.props.toggleSlidebar()}
+          open={this.props.slidebar.sliderOpen}
+          sidebar={<Sidebar />}
+          style={{ minHeight: document.documentElement.clientHeight - 95, }}
+        >
+          <Switch>
+            <Route component={Home}
+              exact
+              path="/"
+            />
+            <Route component={Home}
+              exact
+              path="/home"
+            />
+            <Route component={Battle}
+              exact
+              path="/battle"
+            />
+            <Route component={Popular}
+              path="/popular"
+            />
+            <Route component={Search}
+              path="/search"
+            />
+            <Route
+              render={function () {
+                return <p>Not Found</p>;
+              }}
+            />
+          </Switch>
+        </Drawer>
+        <Footbar></Footbar>
+      </div>
     );
   }
 }
