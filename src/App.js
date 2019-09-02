@@ -5,33 +5,9 @@ import Sidebar from './components/Sidebar';
 import Footbar from './components/Footbar';
 import {toggleSlidebar, } from './redux/actions/slidebar';
 import './styles/App.less';
-import thumbImg from './assets/image/gray.png';
 
 class App extends React.Component {
   render() {
-    const menus = [
-      {
-        title: '首页',
-        path: '/',
-        thumb: thumbImg,
-      },
-      {
-        title: '对比',
-        path: '/battle',
-        thumb: thumbImg,
-      },
-      {
-        title: '热门',
-        path: '/popular',
-        thumb: thumbImg,
-      },
-      {
-        title: '搜索',
-        path: '/search',
-        thumb: thumbImg,
-      },
-    ];
-
     return (<div>
       <NavBar icon={<Icon type="ellipsis" />}
         onLeftClick={() => this.props.toggleSlidebar()}
@@ -44,7 +20,7 @@ class App extends React.Component {
         enableDragHandle
         onOpenChange={() => this.props.toggleSlidebar()}
         open={this.props.slidebar.sliderOpen}
-        sidebar={<Sidebar menus={menus}/>}
+        sidebar={<Sidebar />}
         style={{ minHeight: document.documentElement.clientHeight - 95, }}
       >
         主体内容在这里。Github battle
