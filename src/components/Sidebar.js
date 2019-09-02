@@ -1,6 +1,7 @@
 // 侧边栏组件
 import React from 'react';
 import { List, } from 'antd-mobile';
+import { Link, } from 'react-router-dom';
 import thumbImg from '../assets/image/gray.png';
 
 class Sidebar extends React.Component {
@@ -39,7 +40,12 @@ class Sidebar extends React.Component {
             <List.Item key={index}
               thumb={menu.thumb}
             >
-              {menu.title}
+              <Link
+                className="button"
+                to={menu.path}
+              >
+                {menu.title}
+              </Link>
             </List.Item>);
         })}
       </List>
