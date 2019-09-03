@@ -1,8 +1,11 @@
 // 侧边栏组件
 import React from 'react';
 import { List, } from 'antd-mobile';
-import { Link, } from 'react-router-dom';
+import {connect, } from 'react-redux';
+import { push, } from 'connected-react-router';
 import thumbImg from '../assets/image/gray.png';
+import {toggleSlidebar, } from '../redux/actions/slidebar';
+import {switchFooterTab, } from '../redux/actions/footer';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -13,22 +16,22 @@ class Sidebar extends React.Component {
     const menus = [
       {
         title: '首页',
-        path: '/',
+        name: 'home',
         thumb: thumbImg,
       },
       {
         title: '对比',
-        path: '/battle',
+        name: 'battle',
         thumb: thumbImg,
       },
       {
         title: '热门',
-        path: '/popular',
+        name: 'popular',
         thumb: thumbImg,
       },
       {
         title: '搜索',
-        path: '/search',
+        name: 'search',
         thumb: thumbImg,
       },
     ];
@@ -38,14 +41,10 @@ class Sidebar extends React.Component {
         {menus.map((menu, index) => {
           return (
             <List.Item key={index}
+              onClick={() => this.props.sliderClick(menu.name)}
               thumb={menu.thumb}
             >
-              <Link
-                className="button"
-                to={menu.path}
-              >
-                {menu.title}
-              </Link>
+              {menu.title}
             </List.Item>);
         })}
       </List>
@@ -53,4 +52,29 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+// 将state映射到props
+const mapStateToProps = (state) => {
+  return {
+    slidebar: state.slidebar,
+    footer: state.footer,
+  };
+};
+
+// 绑定分发器
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sliderClick: (name) => {
+      const url = '/' + name;
+
+      console.log('slider click:', name);
+      dispatch(toggleSlidebar());
+      dispatch(switchFooterTab(name));
+
+      console.log('url:', url);
+      dispatch(push(url));
+    },
+  };
+};
+
+// export default Sidebar;
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

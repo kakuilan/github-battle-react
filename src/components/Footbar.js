@@ -90,9 +90,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     switchFooterTab: (name) => {
+      const url = '/' + name;
+
       console.log('switchFooterTab 触发后进入分发器dispatch, 0000');
       dispatch(switchFooterTab(name));
-      const url = '/' + name;
 
       console.log('url:', url);
       dispatch(push(url));
