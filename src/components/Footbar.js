@@ -49,7 +49,7 @@ class Footbar extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="fire"
-                />}
+          />}
           key="Popular"
           onPress={() => this.props.switchFooterTab('popular')}
           selected={this.props.footer.footerActive === 'popular'}
@@ -62,14 +62,14 @@ class Footbar extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="question-circle"
-                />}
+          />}
           key="Search"
           onPress={() => this.props.switchFooterTab('search')}
           selected={this.props.footer.footerActive === 'search'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
-                        />}
+          />}
           title="搜索"
         >
         </TabBar.Item>

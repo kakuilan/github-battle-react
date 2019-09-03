@@ -65,7 +65,7 @@ function isFloat(n) {
  * @param email 变量
  */
 function isEmail(email) {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return re.test(email);
 }
@@ -179,8 +179,10 @@ function sleep(ms) {
  * 根据邮箱获取头像
  * @param v 邮箱
  */
-function getAvatarByEmail(v) {
-  if (!isEmail(v)) {
+function getAvatarByEmail(v = '') {
+  if (v === '') {
+    return '';
+  } else if (!isEmail(v)) {
     return 'http://www.gravatar.com/avatar';
   }
 
