@@ -1,4 +1,6 @@
 // 全局函数
+import MD5 from 'md5.js';
+
 /**
  * 变量是否字符串
  * @param v 变量
@@ -172,6 +174,22 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+
+/**
+ * 根据邮箱获取头像
+ * @param v 邮箱
+ */
+function getAvatarByEmail(v) {
+  if (!isEmail(v)) {
+    return 'http://www.gravatar.com/avatar';
+  }
+
+  const hx = new MD5().update(v).digest('hex');
+
+  return 'http://www.gravatar.com/avatar/' + hx + '?s=200';
+}
+
+
 export default {
   isString,
   isArray,
@@ -190,4 +208,5 @@ export default {
   isEmpty,
   getMillisecond,
   sleep,
+  getAvatarByEmail,
 };

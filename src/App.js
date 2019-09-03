@@ -1,4 +1,5 @@
 import React from 'react';
+import { Avatar, } from 'antd';
 import { Drawer, NavBar, Icon, } from 'antd-mobile';
 import {connect, } from 'react-redux';
 import { Route, Switch, } from 'react-router-dom';
@@ -18,6 +19,12 @@ class App extends React.Component {
       <div>
         <NavBar icon={<Icon type="ellipsis" />}
           onLeftClick={() => this.props.toggleSlidebar()}
+          rightContent={
+            <Avatar className="avatar"
+              icon="user"
+              src="http://www.gravatar.com/avatar"
+            />
+          }
         >
           Github Battle
         </NavBar>
