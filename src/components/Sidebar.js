@@ -54,10 +54,7 @@ class Sidebar extends React.Component {
 
 // 将state映射到props
 const mapStateToProps = (state) => {
-  return {
-    slidebar: state.slidebar,
-    footer: state.footer,
-  };
+  return state;
 };
 
 // 绑定分发器
@@ -70,7 +67,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(toggleSlidebar());
       dispatch(switchFooterTab(name));
 
-      console.log('url:', url);
+      console.log('sliderClick url:', url);
       dispatch(push(url));
     },
   };
