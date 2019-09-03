@@ -3,7 +3,6 @@ import React from 'react';
 import { Icon as Aicon, } from 'antd';
 import { TabBar, } from 'antd-mobile';
 import {connect, } from 'react-redux';
-import { push, } from 'connected-react-router';
 import {switchFooterTab, } from '../redux/actions/footer';
 
 class Footbar extends React.Component {
@@ -23,7 +22,7 @@ class Footbar extends React.Component {
           data-seed="logId"
           icon={<Aicon style={{ fontSize: '20px', }}
             type="home"
-                />}
+          />}
           key="Home"
           onPress={() => this.props.switchFooterTab('home')}
           selected={this.props.footer.footerActive === 'home'}
@@ -36,21 +35,21 @@ class Footbar extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="compass"
-                />}
+          />}
           key="Battle"
           onPress={() => this.props.switchFooterTab('battle')}
           selected={this.props.footer.footerActive === 'battle'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="compass"
-                        />}
+          />}
           title="对比"
         >
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="fire"
-          />}
+                />}
           key="Popular"
           onPress={() => this.props.switchFooterTab('popular')}
           selected={this.props.footer.footerActive === 'popular'}
@@ -63,14 +62,14 @@ class Footbar extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="question-circle"
-          />}
+                />}
           key="Search"
           onPress={() => this.props.switchFooterTab('search')}
           selected={this.props.footer.footerActive === 'search'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
-          />}
+                        />}
           title="搜索"
         >
         </TabBar.Item>
@@ -90,13 +89,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     switchFooterTab: (name) => {
-      const url = '/' + name;
-
       console.log('switchFooterTab 触发后进入分发器dispatch, 0000');
       dispatch(switchFooterTab(name));
-
-      console.log('url:', url);
-      dispatch(push(url));
     },
   };
 };

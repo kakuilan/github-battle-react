@@ -1,4 +1,6 @@
 // redux的action,操作底部栏
+import { push, } from 'connected-react-router';
+
 const SWITCH_FOOTTAB = 'footer/SWITCH';
 const TOGGLE_FOOTTAB = 'footer/TOGGLE';
 
@@ -24,6 +26,12 @@ const switchFooterTab = function (tabName = '') {
     setTimeout(function () {
       dispatch(switchFooterTabSync(tabName));
     }, 150);
+
+    // 路由跳转
+    const url = '/' + tabName;
+
+    console.log('url:', url);
+    dispatch(push(url));
   };
 };
 
