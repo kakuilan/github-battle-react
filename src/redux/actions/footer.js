@@ -2,12 +2,28 @@
 const SWITCH_FOOTTAB = 'footer/SWITCH';
 const TOGGLE_FOOTTAB = 'footer/TOGGLE';
 
-// 选中底部tab
-const switchFooterTab = function (tabName = '') {
+// 选中底部tab(同步)
+const switchFooterTabSync = function (tabName = '') {
   console.log('switchFooterTab 调起action动作, 1111', tabName);
   return {
     type: SWITCH_FOOTTAB,
     payload: tabName, // 底部tab名称
+  };
+};
+
+const switchFooterTab = function (tabName = '') {
+  // 使用Redux Thunk后,内部函数可接收2方法 dispatch和getState参数
+  return (dispatch, getState) => {
+    if (process.env.NODE_ENV === 'development') {
+      const state = getState();
+
+      console.log('switchFooterTab:', process.env, state);
+    }
+
+    // 异步处理
+    setTimeout(function () {
+      dispatch(switchFooterTabSync(tabName));
+    }, 150);
   };
 };
 
