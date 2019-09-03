@@ -109,29 +109,37 @@ function isWord(s) {
   return (/^\w+$/).test(s);
 }
 
+
 /**
- * 扩展对象
- * @param destination 目标对象
+ * 对象合并
+ * @param target 目标对象
  * @param source 源对象
  */
-function objExtend(destination, source) {
-  for (const property in source) {
-    if (
-      destination[property] &&
-      typeof destination[property] === 'object' &&
-      destination[property].toString() == '[object Object]' &&
-      source[property]
-    ) { objExtend(destination[property], source[property]); } else {destination[property] = source[property];}
+function objMerge(target, source) {
+  if (isObject(target) && isObject(source)) {
+    let key;
+
+    for (key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) {Object.assign(target, { [key]: {}, });}
+        objMerge(target[key], source[key]);
+      } else {
+        // Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象
+        Object.assign(target, { [key]: source[key], });
+      }
+    }
   }
-  return destination;
+
+  return target;
 }
+
 
 /**
  * 变量是否为空
  * @param v 变量
  */
 function isEmpty(v) {
-  if (v === undefined || v === null || v === '') {
+  if (typeof v === 'undefined' || v === null || v === '') {
     return true;
   }
   return false;
@@ -178,7 +186,7 @@ export default {
   isEnglish,
   isEngNum,
   isWord,
-  objExtend,
+  objMerge,
   isEmpty,
   getMillisecond,
   sleep,

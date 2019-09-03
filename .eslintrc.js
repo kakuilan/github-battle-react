@@ -136,6 +136,7 @@ module.exports = {
     'no-undef': 2, //不能有未定义的变量
     'no-undef-init': 2, //不允许初始化变量时给变量赋值undefined
     'no-underscore-dangle': 0, //标识符不能以_开头或结尾
+    'no-useless-escape': 1, //禁用不必要的转义,配置文件中的 "extends": "eslint:recommended" 属性启用了此规则,在这里放开
     'no-unreachable': 1, //不能有无法执行的代码
     'no-unused-expressions': 2, //不允许无用的表达式
     'no-unused-vars': [2, { vars: 'all', args: 'after-used' }], //不能有声明后未被使用的变量或参数
