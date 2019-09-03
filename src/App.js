@@ -30,6 +30,7 @@ class App extends React.Component {
           sidebar={<Sidebar />}
           style={{ minHeight: document.documentElement.clientHeight - 95, }}
         >
+          {/** 定义路由页面组件 */}
           <Switch>
             <Route component={Home}
               exact
