@@ -21,6 +21,10 @@ class Home extends React.Component {
             placeholder="请输入你的邮箱"
             value={this.props.user.email}
           >邮箱</InputItem>
+          <WhiteSpace />
+          <p>
+            当前版本：<span>{process.env.REACT_APP_VERSION}</span>
+          </p>
         </div>
       </div>);
     }
