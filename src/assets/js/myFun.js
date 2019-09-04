@@ -1,5 +1,6 @@
 // 全局函数
 import MD5 from 'md5.js';
+import { func, } from 'C:/Users/Administrator/AppData/Local/Microsoft/TypeScript/3.5/node_modules/@types/prop-types';
 
 /**
  * 变量是否字符串
@@ -190,7 +191,6 @@ function getAvatarByEmail(v = '') {
 
   return 'http://www.gravatar.com/avatar/' + hx + '?s=200';
 }
-
 
 export default {
   isString,
