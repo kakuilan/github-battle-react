@@ -8,14 +8,14 @@ const CHANGE_PLAYERB = 'battle/PLAYERB';
 const changePlayer = function (userName = '', type = '') {
   const data = {
     username: userName,
-    info: {},
     status: false,
+    info: {},
   };
 
   return (dispatch) => {
     getUserByName(userName).then((res) => {
-      data.info = res;
       data.status = true;
+      data.info = res;
       dispatch({
         type: type,
         payload: data,
