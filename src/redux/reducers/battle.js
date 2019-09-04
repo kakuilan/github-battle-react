@@ -21,7 +21,6 @@ const initState = {
 
 // reducer是一个计划函数，接收旧的 state 和 action，生成新的 state
 export default function reducer(state = initState, action) {
-  // const avatar = (typeof (action.payload.info) !== 'undefined' && typeof (action.payload.info.avatar_url) !== 'undefined') ? action.payload.info.avatar_url : 'http://www.gravatar.com/avatar';
   let avatar = 'http://www.gravatar.com/avatar';
 
   if (myFun.isObject(action) && typeof (action.data) !== 'undefined') {
@@ -31,7 +30,6 @@ export default function reducer(state = initState, action) {
       avatar = action.data.info.avatar_url;
     }
   }
-  console.log('battle reducer:', action, avatar);
 
   switch (action.type) {
   case CHANGE_PLAYERA:
