@@ -18,6 +18,22 @@ xhr.interceptors.request.use(
     const t = myFun.getMillisecond();
 
     if (typeof config.params === 'object') {
+      config.params['client_id'] = process.env.REACT_APP_GITHUB_CID;
+    } else {
+      config.params = {
+        client_id: process.env.REACT_APP_GITHUB_CID,
+      };
+    }
+
+    if (typeof config.params === 'object') {
+      config.params['client_secret'] = process.env.REACT_APP_GITHUB_SEC;
+    } else {
+      config.params = {
+        client_secret: process.env.REACT_APP_GITHUB_SEC,
+      };
+    }
+
+    if (typeof config.params === 'object') {
       config.params['client_time'] = t;
     } else {
       config.params = {
@@ -58,7 +74,26 @@ xhr.interceptors.response.use(
       console.log('xhr response:', response);
     }
 
-    return response;
+    // 判断http状态码
+    switch (response.status) {
+    case 200: // 正常
+      break;
+    case 404:
+      Toast.info('404错误!', 1);
+      break;
+    case 500:
+      Toast.fail('接口错误!', 1);
+      break;
+    case 504:
+      Toast.offline('网络超时!', 1);
+      break;
+    default:
+      Toast.offline('未知错误!', 1);
+      break;
+    }
+
+    // 返回响应数据
+    return response.data;
   },
   (error) => {
     if (process.env.NODE_ENV === 'development') {
