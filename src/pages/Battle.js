@@ -1,6 +1,8 @@
 import React from 'react';
+import { push, } from 'connected-react-router';
 import { InputItem, WhiteSpace, Button, } from 'antd-mobile';
 import { Avatar, } from 'antd';
+import { Toast, } from 'antd-mobile';
 import {connect, } from 'react-redux';
 import {changePlayerA, changePlayerB, } from '../redux/actions/battle';
 
@@ -12,6 +14,15 @@ class Battle extends React.Component {
     onChangeB = (value) => {
       value = value.replace(/\s/g, '');
       return this.props.changeB(value);
+    }
+    doCompare = () => {
+      if (!this.props.battle.player_a_status) {
+        return Toast.fail('选手A不存在!', 2);
+      } else if (!this.props.battle.player_b_status) {
+        return Toast.fail('选手B不存在!', 2);
+      }
+
+      return this.props.doCompare();
     }
 
     render() {
@@ -42,6 +53,7 @@ class Battle extends React.Component {
         </InputItem>
         <WhiteSpace />
         <Button inline
+          onClick={this.doCompare}
           style={{ marginRight: '4px', }}
           type="primary"
         >开始PK</Button>
@@ -65,6 +77,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     changeB: (v) => {
       dispatch(changePlayerB(v));
+    },
+    doCompare: () => {
+      dispatch(push('/battle/result'));
     },
   };
 };

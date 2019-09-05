@@ -8,6 +8,7 @@ import Footbar from './components/Footbar';
 import {toggleSlidebar, } from './redux/actions/slidebar';
 import Home from './pages/Home';
 import Battle from './pages/Battle';
+import BattleResult from './pages/BattleResult';
 import Popular from './pages/Popular';
 import Search from './pages/Search';
 
@@ -50,6 +51,9 @@ class App extends React.Component {
             <Route component={Battle}
               exact
               path="/battle"
+            /><Route component={BattleResult}
+              exact
+              path="/battle/result"
             />
             <Route component={Popular}
               path="/popular"
