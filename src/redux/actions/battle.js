@@ -12,7 +12,7 @@ const changePlayer = function (userName = '', type = '') {
   };
 
   return (dispatch) => {
-    api.getUserByName(userName).then((res) => {
+    api.getProfileByName(userName).then((res) => {
       data.status = true;
       data.info = res;
       dispatch({

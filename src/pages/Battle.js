@@ -84,5 +84,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-// export default Battle;
 export default connect(mapStateToProps, mapDispatchToProps)(Battle);
