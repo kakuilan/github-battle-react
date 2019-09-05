@@ -18,7 +18,7 @@ const initState = {
   player_b_avatar: '',
 
   // 对比结果,赢输的选手信息
-  battle_result: false,
+  battle_result: 0, // 0等待结果,-1失败,1成功
   player_winner: {},
   player_loser: {},
 
@@ -61,7 +61,7 @@ export default function reducer(state = initState, action) {
     });
   case COMPARE_RESULT:
     return merge({}, state, {
-      battle_result: action.result,
+      battle_result: action.result ? 1 : -1,
       player_winner: action.result ? action.players[0] : {},
       player_loser: action.result ? action.players[1] : {},
     });

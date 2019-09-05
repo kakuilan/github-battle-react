@@ -23,7 +23,7 @@ const switchFooterTab = function (tabName = '') {
     }
 
     // 异步处理
-    setTimeout(function () {
+    setTimeout(() => {
       dispatch(switchFooterTabSync(tabName));
     }, 150);
 
