@@ -18,14 +18,17 @@ const initState = {
   player_b_avatar: '',
 
   // 对比结果,赢输的选手信息
+  battle_result: false,
   player_winner: {},
   player_loser: {},
-  battle_result: false,
+
 };
 
 // reducer是一个计划函数，接收旧的 state 和 action，生成新的 state
 export default function reducer(state = initState, action) {
   let avatar = 'http://www.gravatar.com/avatar';
+
+  console.log('battle reducer:', action);
 
   if (myFun.isObject(action) && typeof (action.data) !== 'undefined') {
     if (action.data.username === '') {
@@ -58,9 +61,9 @@ export default function reducer(state = initState, action) {
     });
   case COMPARE_RESULT:
     return merge({}, state, {
-      player_winner: action.data[0],
-      player_loser: action.data[1],
-      battle_result: true,
+      battle_result: action.result,
+      player_winner: action.result ? action.players[0] : {},
+      player_loser: action.result ? action.players[1] : {},
     });
   default:
     if (action.entities && action.entities.comments) {
