@@ -1,9 +1,9 @@
 import React from 'react';
+import {connect, } from 'react-redux';
 import { push, } from 'connected-react-router';
 import { InputItem, WhiteSpace, Button, } from 'antd-mobile';
 import { Avatar, } from 'antd';
 import { Toast, } from 'antd-mobile';
-import {connect, } from 'react-redux';
 import {changePlayerA, changePlayerB, } from '../redux/actions/battle';
 
 class Battle extends React.Component {

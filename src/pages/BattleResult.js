@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect, } from 'react-redux';
-import { Toast, } from 'antd-mobile';
 import { push, } from 'connected-react-router';
+import { Toast, } from 'antd-mobile';
 import {compareClear, compareResult, } from '../redux/actions/battle';
 
 class BattleResult extends React.Component {
