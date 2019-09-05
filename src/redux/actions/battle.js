@@ -1,9 +1,14 @@
 // redux的action,操作battle信息
 import api from '../../api';
+import { Toast, } from 'antd-mobile';
+import { push, } from 'connected-react-router';
 
 const CHANGE_PLAYERA = 'battle/PLAYERA';
 const CHANGE_PLAYERB = 'battle/PLAYERB';
+const COMPARE_CLEAR = 'battle/COMPARE_CLEAR';
+const COMPARE_RESULT = 'battle/COMPARE_RESULT';
 
+// 改变选手,切换用户信息
 const changePlayer = function (userName = '', type = '') {
   const data = {
     username: userName,
@@ -38,9 +43,37 @@ const changePlayerB = function (userName = '') {
   return changePlayer(userName, CHANGE_PLAYERB);
 };
 
+// 清空对比结果
+const compareClear = function () {
+  return (dispatch) => {
+    dispatch({
+      type: COMPARE_CLEAR,
+    });
+  };
+};
+
+// 获取对比结果
+const compareResult = function (userNames = []) {
+  return (dispatch) => {
+    api.battleCompare(userNames).then((players) => {
+      dispatch({
+        type: COMPARE_CLEAR,
+        data: players,
+      });
+    }).catch((err) => {
+      Toast.fail(err, 1);
+      dispatch(push('/battle'));
+    });
+  };
+};
+
 export {
   CHANGE_PLAYERA,
   CHANGE_PLAYERB,
+  COMPARE_CLEAR,
+  COMPARE_RESULT,
   changePlayerA,
   changePlayerB,
+  compareClear,
+  compareResult,
 };
