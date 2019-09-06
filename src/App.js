@@ -31,8 +31,7 @@ class App extends React.Component {
         </NavBar>
         <Drawer
           className="my-drawer"
-          contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
-          enableDragHandle
+          contentStyle={{ color: '#A6A6A6', textAlign: 'center', }}
           onOpenChange={() => this.props.toggleSlidebar()}
           open={this.props.slidebar.sliderOpen}
           sidebar={<Sidebar />}
@@ -54,7 +53,7 @@ class App extends React.Component {
             /><Route component={BattleResult}
               exact
               path="/battle/result"
-            />
+              />
             <Route component={Popular}
               path="/popular"
             />
