@@ -4,7 +4,7 @@ import animate from '@jam3/gsap-promise';
 import {connect, } from 'react-redux';
 import Language from '../components/Language';
 import RepoGrid from '../components/RepoGrid';
-import {changeLanguage, } from '../redux/actions/popular';
+import {changeLanguage, clearRepository, } from '../redux/actions/popular';
 
 class Popular extends React.Component {
   constructor(props) {
@@ -18,10 +18,13 @@ class Popular extends React.Component {
 
   updateLanguage(lang) {
     Toast.loading('Loading...', 0);
-    return this.props.changeLanguage(lang, () => {
+
+    this.props.clear();
+    this.props.changeLanguage(lang, () => {
       // 有结果后关闭loading
       Toast.hide();
     });
+    return;
   }
 
   render() {
@@ -49,6 +52,9 @@ const mapStateToProps = (state) => {
 // 绑定分发器
 const mapDispatchToProps = (dispatch) => {
   return {
+    clear: () => {
+      dispatch(clearRepository());
+    },
     changeLanguage: (v, callback) => {
       dispatch(changeLanguage(v, callback));
     },

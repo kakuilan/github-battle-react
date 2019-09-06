@@ -1,5 +1,5 @@
 // redux的reducer,操作popular信息
-import {CHANGE_LANGUAGE, } from '../actions/popular';
+import {CHANGE_LANGUAGE, CLEAR_REPOSITORY, } from '../actions/popular';
 import merge from 'lodash/merge';
 
 // 初始化状态
@@ -16,6 +16,10 @@ export default function reducer(state = initState, action) {
     return merge({}, state, {
       repositories: action.data.repos,
       selectedLang: action.data.lang,
+    });
+  case CLEAR_REPOSITORY:
+    return merge({}, state, {
+      repositories: null,
     });
   default:
     if (action.entities && action.entities.comments) {

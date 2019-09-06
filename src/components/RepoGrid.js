@@ -6,6 +6,10 @@ import animate from '@jam3/gsap-promise';
 class RepoGrid extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      mounted: false,
+    };
   }
 
   componentDidMount() {
@@ -19,6 +23,9 @@ class RepoGrid extends React.Component {
       },
       0.035
     );
+
+    // setState更新的数据必须是对象
+    // this.setState({mounted: true, });
   }
 
   // 组件更新之后触发
