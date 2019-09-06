@@ -7,12 +7,12 @@ class Language extends React.Component {
     const languages = [
       'All',
       'Go',
+      'Python',
+      'Java',
       'Javascript',
       'Ruby',
-      'Java',
-      'Shell',
-      'Python',
       'PHP',
+      'Shell',
     ];
 
     return (

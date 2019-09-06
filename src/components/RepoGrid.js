@@ -20,6 +20,21 @@ class RepoGrid extends React.Component {
       0.035
     );
   }
+
+  // 组件更新之后触发
+  componentDidUpdate() {
+    animate.staggerFrom(
+      '.popular-item',
+      0.5,
+      {
+        x: -1500,
+        opacity: 0.5,
+        delay: 0.2,
+      },
+      0.035
+    );
+  }
+
   render() {
     const repos = this.props.repos;
 
