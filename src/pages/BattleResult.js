@@ -2,6 +2,7 @@ import React from 'react';
 import {connect, } from 'react-redux';
 import { push, } from 'connected-react-router';
 import { Toast, WhiteSpace, } from 'antd-mobile';
+// import animate from '@jam3/gsap-promise';
 import {compareClear, compareResult, } from '../redux/actions/battle';
 import Player from '../components/Player';
 
