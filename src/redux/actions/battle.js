@@ -30,6 +30,7 @@ const changePlayer = function (userName = '', type = '') {
         type: type,
         data: data,
       });
+      Toast.fail('获取选手失败！', 2);
     });
   };
 };
