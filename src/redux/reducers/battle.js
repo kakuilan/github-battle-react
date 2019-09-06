@@ -33,13 +33,12 @@ export default function reducer(state = initState, action) {
   if (myFun.isObject(action) && typeof (action.data) !== 'undefined') {
     if (action.data.username === '') {
       avatar = '';
-    } else if (typeof (action.data.info.avatar_url) !== 'undefined') {
-      avatar = action.data.info.avatar_url;
     }
   }
 
   switch (action.type) {
   case CHANGE_PLAYERA:
+    avatar = action.data.info.avatar_url;
     return merge({}, state, {
       player_a_name: action.data.username,
       player_a_status: action.data.status,
@@ -47,6 +46,7 @@ export default function reducer(state = initState, action) {
       player_a_avatar: avatar,
     });
   case CHANGE_PLAYERB:
+    avatar = action.data.info.avatar_url;
     return merge({}, state, {
       player_b_name: action.data.username,
       player_b_status: action.data.status,

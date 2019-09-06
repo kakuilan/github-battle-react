@@ -5,6 +5,7 @@ import slidebar from './reducers/slidebar';
 import footer from './reducers/footer';
 import user from './reducers/user';
 import battle from './reducers/battle';
+import popular from './reducers/popular';
 
 export default (history) => combineReducers({
   router: connectRouter(history),
@@ -12,4 +13,5 @@ export default (history) => combineReducers({
   footer,
   user,
   battle,
+  popular,
 });

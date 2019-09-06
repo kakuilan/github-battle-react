@@ -93,7 +93,7 @@ const getPopularRepos = function (language = '') {
   if (language === '') {
     language = 'All';
   }
-  const uri = encodeURI('/search/repositories?q=stars:>1+language:${language}');
+  const uri = encodeURI(`/search/repositories?q=stars:>1+language:${language}`);
 
   return xhr({
     url: uri,

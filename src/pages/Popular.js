@@ -1,21 +1,27 @@
 import React from 'react';
+import { Toast, } from 'antd-mobile';
 import animate from '@jam3/gsap-promise';
+import {connect, } from 'react-redux';
 import Language from '../components/Language';
+import RepoGrid from '../components/RepoGrid';
+import {changeLanguage, } from '../redux/actions/popular';
 
 class Popular extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedLang: 'All', // default state
-    };
   }
 
   componentDidMount() {
     animate.from(this.topHeader, 0.2, { y: -200, delay: 0.1, });
+    this.updateLanguage();
   }
 
   updateLanguage(lang) {
-    return lang;
+    Toast.loading('Loading...', 0);
+    return this.props.changeLanguage(lang, () => {
+      // 有结果后关闭loading
+      Toast.hide();
+    });
   }
 
   render() {
@@ -23,12 +29,30 @@ class Popular extends React.Component {
       <div>
         <h1 ref={(c) => { this.topHeader = c; }}>热门项目</h1>
         <Language
-          onSelect={this.updateLanguage}
-          selectedLang={this.state.selectedLang}
+          onSelect={this.updateLanguage.bind(this)}
+          selectedLang={this.props.popular.selectedLang}
         />
+
+        {this.props.popular.repositories && <RepoGrid repos={this.props.popular.repositories}></RepoGrid>}
       </div>
     );
   }
 }
 
-export default Popular;
+// 将state映射到props
+const mapStateToProps = (state) => {
+  return {
+    popular: state.popular,
+  };
+};
+
+// 绑定分发器
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeLanguage: (v, callback) => {
+      dispatch(changeLanguage(v, callback));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Popular);
