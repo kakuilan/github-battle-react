@@ -24,7 +24,7 @@ class Battle extends React.Component {
         }
 
         return this.props.willCompare();
-      }, 250);
+      }, 500); // 给点时间获取用户信息再跳转
     }
 
     render() {

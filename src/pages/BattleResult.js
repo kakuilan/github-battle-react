@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect, } from 'react-redux';
 import { push, } from 'connected-react-router';
-import { Toast, } from 'antd-mobile';
+import { Toast, WhiteSpace, } from 'antd-mobile';
 import {compareClear, compareResult, } from '../redux/actions/battle';
 import Player from '../components/Player';
 
@@ -54,13 +54,13 @@ class BattleResult extends React.Component {
     } else if (this.props.battle.battle_result === -1) {
       return (<div>PK失败</div>);
     }
-
     return (
       <div className="row">
         <Player label="胜出"
           profile={player_winner.profile}
           score={player_winner.score}
         />
+        <WhiteSpace />
         <Player label="战败"
           profile={player_loser.profile}
           score={player_loser.score}
