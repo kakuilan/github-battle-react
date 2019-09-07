@@ -10,7 +10,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      username: props.search.userName,
     };
   }
 
@@ -20,7 +20,12 @@ class Search extends React.Component {
   }
 
   onChange(value) {
+    console.log('onChange:', value);
     value = value.replace(/\s/g, '');
+    if (value === '' && this.props.search.userName !== '') {
+      value = this.props.search.userName;
+    }
+
     // 调用处须绑定this,否则提示Cannot read property 'setState' of undefined
     this.setState({ username: value, });
   }
@@ -49,7 +54,8 @@ class Search extends React.Component {
       <div>
         <InputItem
           clear
-          defaultValue=""
+          defaultValue={this.state.username}
+          onBlur={this.onChange.bind(this)}
           onChange={this.onChange.bind(this)}
           placeholder="请输入要查找的用户名"
         >用户</InputItem>

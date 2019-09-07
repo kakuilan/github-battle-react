@@ -52,7 +52,7 @@ class Footbar extends React.Component {
           data-seed="logId"
           icon={<Aicon style={{ fontSize: '20px', }}
             type="home"
-                />}
+          />}
           key="Home"
           onPress={() => this.props.switchFooterTab('home')}
           selected={this.state.footerActive === 'home'}
@@ -65,21 +65,21 @@ class Footbar extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="compass"
-                />}
+          />}
           key="Battle"
           onPress={() => this.props.switchFooterTab('battle')}
           selected={this.state.footerActive === 'battle' || this.state.footerActive === 'battle/result'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="compass"
-                        />}
+          />}
           title="对比"
         >
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="fire"
-                />}
+          />}
           key="Popular"
           onPress={() => this.props.switchFooterTab('popular')}
           selected={this.state.footerActive === 'popular'}
@@ -92,14 +92,14 @@ class Footbar extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="question-circle"
-                />}
+          />}
           key="Search"
           onPress={() => this.props.switchFooterTab('search')}
           selected={this.state.footerActive === 'search'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
-                        />}
+          />}
           title="搜索"
         >
         </TabBar.Item>
