@@ -1,8 +1,8 @@
 import React from 'react';
-import { Avatar, } from 'antd';
-import { Drawer, NavBar, Icon, } from 'antd-mobile';
 import {connect, } from 'react-redux';
 import { Route, Switch, } from 'react-router-dom';
+import { Avatar, } from 'antd';
+import { Drawer, NavBar, Icon, } from 'antd-mobile';
 import Sidebar from './components/Sidebar';
 import Footbar from './components/Footbar';
 import {toggleSlidebar, } from './redux/actions/slidebar';
@@ -11,10 +11,13 @@ import Battle from './pages/Battle';
 import BattleResult from './pages/BattleResult';
 import Popular from './pages/Popular';
 import Search from './pages/Search';
-
 import './styles/App.less';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
@@ -53,7 +56,7 @@ class App extends React.Component {
             /><Route component={BattleResult}
               exact
               path="/battle/result"
-              />
+            />
             <Route component={Popular}
               path="/popular"
             />

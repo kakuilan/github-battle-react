@@ -5,6 +5,7 @@ import { Toast, WhiteSpace, } from 'antd-mobile';
 // import animate from '@jam3/gsap-promise';
 import {compareClear, compareResult, } from '../redux/actions/battle';
 import Player from '../components/Player';
+import animate from '@jam3/gsap-promise';
 
 class BattleResult extends React.Component {
   constructor(props) {
@@ -28,6 +29,19 @@ class BattleResult extends React.Component {
     }
   }
 
+  slede() {
+    animate.staggerFrom(
+      '.battleResult',
+      0.5,
+      {
+        x: -1500,
+        opacity: 0.5,
+        delay: 0.2,
+      },
+      0.055
+    );
+  }
+
   // 执行比较
   doCompare = () => {
     if (!this.props.battle.player_a_status || !this.props.battle.player_b_status) {
@@ -41,6 +55,7 @@ class BattleResult extends React.Component {
     this.props.doCompare([this.props.battle.player_a_name, this.props.battle.player_b_name, ], () => {
       // 有结果后关闭loading
       Toast.hide();
+      this.slede();
     });
 
     return;

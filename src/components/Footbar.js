@@ -8,6 +8,35 @@ import {switchFooterTab, } from '../redux/actions/footer';
 class Footbar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      footerActive: this.props.footer.footerActive,
+    };
+  }
+
+  // 在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 null 则不更新任何内容
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('nextProps:-------------', nextProps);
+      console.log('prevState:-------------', prevState);
+    }
+
+    const path = nextProps.router.location.pathname.substr(1); // 删除第一个字符'/'
+
+    // 选择当前路径的底部栏tab
+    if (path !== prevState.footerActive) {
+      return {
+        footerActive: path,
+      };
+    }
+
+    return {
+      footerActive: nextProps.footer.footerActive,
+    };
+  }
+
+  componentDidMount() {
+    // todo
   }
 
   render() {
@@ -25,7 +54,7 @@ class Footbar extends React.Component {
           />}
           key="Home"
           onPress={() => this.props.switchFooterTab('home')}
-          selected={this.props.footer.footerActive === 'home'}
+          selected={this.state.footerActive === 'home'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="home" />}
@@ -38,7 +67,7 @@ class Footbar extends React.Component {
           />}
           key="Battle"
           onPress={() => this.props.switchFooterTab('battle')}
-          selected={this.props.footer.footerActive === 'battle'}
+          selected={this.state.footerActive === 'battle' || this.state.footerActive === 'battle/result'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="compass"
@@ -52,7 +81,7 @@ class Footbar extends React.Component {
           />}
           key="Popular"
           onPress={() => this.props.switchFooterTab('popular')}
-          selected={this.props.footer.footerActive === 'popular'}
+          selected={this.state.footerActive === 'popular'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="fire" />}
@@ -65,7 +94,7 @@ class Footbar extends React.Component {
           />}
           key="Search"
           onPress={() => this.props.switchFooterTab('search')}
-          selected={this.props.footer.footerActive === 'search'}
+          selected={this.state.footerActive === 'search'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
@@ -81,6 +110,7 @@ class Footbar extends React.Component {
 // 将state映射到props
 const mapStateToProps = (state) => {
   return {
+    router: state.router,
     footer: state.footer,
   };
 };
