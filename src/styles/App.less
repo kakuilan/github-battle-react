@@ -41,41 +41,45 @@ li {
 
 /* 注释,以下为battle相关样式 */
 .row {
-  & .header{
 
-  }
+  & .battleResult {
+    width: 90%;
+    margin: 0 auto;
 
-  & .score {
-    text-align: center;
-    color: darkgreen;
-  }
+    & .header {}
 
-  & .column {
-
-    & .avatar{
-      width: 150px;
-      border-radius: 50%;
+    & .score {
+      text-align: center;
+      color: darkgreen;
     }
 
-    & .username{
-      color: cadetblue;
+    & .column {
+
+      & .avatar {
+        width: 150px;
+        border-radius: 50%;
+      }
+
+      & .username {
+        color: cadetblue;
+      }
     }
-  }
 
-  & .space-list-items{
-    margin-bottom: 7px;
-    text-align: left;
-    font-size: 18px;
-    line-height: 24px;
+    & .space-list-items {
+      margin-bottom: 7px;
+      text-align: left;
+      font-size: 18px;
+      line-height: 24px;
 
-    & li {
+      & li {
 
-      & span.itemName {
-        margin-left: 20px;
-        margin-right: 20px;
-        width: 80px;
-        display: inline-block;
-        color: slategray;
+        & span.itemName {
+          margin-left: 20px;
+          margin-right: 20px;
+          width: 80px;
+          display: inline-block;
+          color: slategray;
+        }
       }
     }
   }
@@ -237,15 +241,16 @@ li {
       }
 
       & .repo {
-        width: 300px;
+        width: 90%;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
         flex-direction: column;
-        margin: 25px;
-        padding: 20px;
         -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, .46);
         box-shadow: 0 1px 5px rgba(0, 0, 0, .46);
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-left: 10px;
 
         &>* {
           margin-top: 5px;
