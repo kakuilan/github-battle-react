@@ -9,15 +9,21 @@ const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 // html文件生成
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 强制所有必需模块的完整路径与磁盘上实际路径的确切大小写相匹配
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 // 文件压缩
 const TerserPlugin = require('terser-webpack-plugin');
+// 将CSS提取为独立的文件的插件，对每个包含css的js文件都会创建一个CSS文件，支持按需加载css和sourceMap
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// 优化或压缩CSS资源
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// PostCSS安全解析器,针对 PostCSS的容错CSS解析器，可以找到&修复语法错误，能够解析任何输入错误
 const safePostCssParser = require('postcss-safe-parser');
+// 生成编译结果的资源单,在项目根目录生成一份## manifest.json的文件
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+// 使用 workbox 实现 PWA
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
@@ -29,7 +35,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
-
+// PostCSS标准化,使用 PostCSS规范，从browserslist中使用 normalize.css 所需的部分
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
