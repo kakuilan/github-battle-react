@@ -37,6 +37,8 @@ const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
 // PostCSS标准化,使用 PostCSS规范，从browserslist中使用 normalize.css 所需的部分
 const postcssNormalize = require('postcss-normalize');
+// gzip压缩插件
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -606,6 +608,26 @@ module.exports = function (webpackEnv) {
           filename: 'static/css/[name].[contenthash:8].css',
           chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
         }),
+
+      // 使用gzip压缩
+      isEnvProduction &&
+      new CompressionPlugin({
+        // 匹配文件
+        test: /\.js(\?.*)?$|\.css$|\.html$/i,
+        // 生成文件名
+        filename: '[path].gz[query]',
+        // 压缩算法
+        algorithm: 'gzip',
+        // 压缩选项:级别9,
+        compressionOptions: { level: 9, },
+        // 仅处理大于此值的资源,字节
+        threshold: 1024,
+        // 仅处理小于此值的压缩率,为1则全部处理
+        minRatio: 0.9,
+        // 是否删除原资源
+        deleteOriginalAssets: false,
+      }),
+
       // Generate a manifest file which contains a mapping of all asset filenames
       // to their corresponding output file so that tools can pick it up without
       // having to parse `index.html`.
