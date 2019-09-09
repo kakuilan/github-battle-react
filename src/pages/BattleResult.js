@@ -6,6 +6,7 @@ import { Toast, WhiteSpace, } from 'antd-mobile';
 import {compareClear, compareResult, } from '../redux/actions/battle';
 import Player from '../components/Player';
 import animate from '@jam3/gsap-promise';
+import resultImg from '../assets/image/battle_result.png';
 
 class BattleResult extends React.Component {
   constructor(props) {
@@ -72,6 +73,9 @@ class BattleResult extends React.Component {
     }
     return (
       <div className="row">
+        <div className="resImg">
+          <img src={resultImg}></img>
+        </div>
         <Player label="胜出"
           profile={player_winner.profile}
           score={player_winner.score}
