@@ -25,6 +25,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    //off=0, warn=1, error=2, 如果是数组, 第二项表示参数option
     'consistent-return': 2, //无论有没有返回值都强制要求return语句返回一个值
     eqeqeq: [2, 'smart'], //比较的时候使用严格等于
     'no-console': 1, //不允许出现console语句
