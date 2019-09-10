@@ -3,15 +3,38 @@ import {connect, } from 'react-redux';
 import { Route, Switch, } from 'react-router-dom';
 import { Avatar, } from 'antd';
 import { Drawer, NavBar, Icon, } from 'antd-mobile';
+import Loadable from 'react-loadable';
 import Sidebar from './components/Sidebar';
 import Footbar from './components/Footbar';
 import {toggleSlidebar, } from './redux/actions/slidebar';
-import Home from './pages/Home';
-import Battle from './pages/Battle';
-import BattleResult from './pages/BattleResult';
-import Popular from './pages/Popular';
-import Search from './pages/Search';
+import Loading from './components/Loading';
+// import Home from './pages/Home';
+// import Battle from './pages/Battle';
+// import BattleResult from './pages/BattleResult';
+// import Popular from './pages/Popular';
+// import Search from './pages/Search';
 import './styles/App.less';
+
+const Home = Loadable({
+  loader: () => import('./pages/Home'),
+  loading: Loading,
+});
+const Battle = Loadable({
+  loader: () => import('./pages/Battle'),
+  loading: Loading,
+});
+const BattleResult = Loadable({
+  loader: () => import('./pages/BattleResult'),
+  loading: Loading,
+});
+const Popular = Loadable({
+  loader: () => import('./pages/Popular'),
+  loading: Loading,
+});
+const Search = Loadable({
+  loader: () => import('./pages/Search'),
+  loading: Loading,
+});
 
 class App extends React.Component {
   constructor(props) {
