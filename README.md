@@ -81,3 +81,10 @@ Inside that directory, you can run several commands:
 #### `yarn eject`  
     Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
+
+
+#### 环境变量
+    .env：默认。
+    .env.local：本地覆盖。除 test 之外的所有环境都加载此文件。
+    .env.development, .env.test, .env.production：设置特定环境。
+    .env.development.local, .env.test.local, .env.production.local：设置特定环境的本地覆盖。
