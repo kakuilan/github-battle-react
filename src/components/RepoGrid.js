@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // import animate from '@jam3/gsap-promise';
 // import Lazyload from 'react-lazyload';
 import LazyLoad from 'react-lazy-load';
+import MyImg from './MyImg';
 
 class RepoGrid extends React.Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class RepoGrid extends React.Component {
                   <LazyLoad height={150}
                     offsetVertical={200}
                   >
-                    <img
+                    <MyImg
                       alt={`Avatar for ${repo.owner.login}`}
                       className="avatar"
                       src={repo.owner.avatar_url}
