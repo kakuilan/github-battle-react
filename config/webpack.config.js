@@ -626,7 +626,7 @@ module.exports = function (webpackEnv) {
       isEnvProduction &&
       new CompressionPlugin({
         // 匹配文件
-        test: /\.js(\?.*)?$|\.css$|\.html$/i,
+        test: /\.js(\?.*)?$|\.css$|\.html$|\.svg$/i,
         // 生成文件名
         filename: '[path].gz[query]',
         // 压缩算法
