@@ -88,3 +88,10 @@ Inside that directory, you can run several commands:
     .env.local：本地覆盖。除 test 之外的所有环境都加载此文件。
     .env.development, .env.test, .env.production：设置特定环境。
     .env.development.local, .env.test.local, .env.production.local：设置特定环境的本地覆盖。
+
+#### 升级依赖包
+
+```shell
+ncu -u
+```
+
